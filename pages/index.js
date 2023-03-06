@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import { BiPlus } from 'react-icons/bi';
 import Form from './components/form';
+import Table from './components/table';
 
 export default function Home() {
   const [visible, setVisible] = useState(false);
@@ -40,7 +41,9 @@ export default function Home() {
         {visible ? <Form></Form> : <></>}
 
         {/* table */}
-        <div className='container mx-auto'></div>
+        <div className='container mx-auto'>
+          <Table></Table>
+        </div>
       </main>
     </section>
   );
