@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { BiPlus } from 'react-icons/bi';
-import Form from './components/Form';
+import Form from './components/form';
 
 export default function Home() {
   return (
