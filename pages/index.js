@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { BiPlus } from 'react-icons/bi';
+import Form from './components/Form';
 
 export default function Home() {
   return (
@@ -24,10 +25,10 @@ export default function Home() {
               Add ShoppingList Item{' '}
             </button>
           </div>
-
-          {/* collapsable form */}
-
-          {/* table */}
+        </div>
+        {/* collapsable form */}
+        <div className='container mx-auto py-5'>
+          <Form></Form>
         </div>
       </main>
     </section>
