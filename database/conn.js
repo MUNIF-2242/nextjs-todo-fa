@@ -1,5 +1,6 @@
 const MONGO_URI =
-  'mongodb+srv://sbh2242:sbh2242@cluster0.de7jaw2.mongodb.net/?retryWrites=true&w=majority';
+  'mongodb+srv://sbh2242:sbh2242@cluster0.5uegfsp.mongodb.net/?retryWrites=true&w=majority';
+
 import mongoose from 'mongoose';
 
 const connectMongo = async () => {
