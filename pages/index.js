@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { BiPlus } from 'react-icons/bi';
-import Form from './components/form';
-import Table from './components/table';
+import Form from '../components/form';
+import Table from '../components/table';
 
 export default function Home() {
   const [visible, setVisible] = useState(false);
