@@ -12,7 +12,6 @@ export default function UpdateUserForm({ formId, formData, setFormData }) {
   );
   const UpdateMutation = useMutation((newData) => updateUser(formId, newData), {
     onSuccess: async (data) => {
-      // queryClient.setQueryData('users', (old) => [data])
       queryClient.prefetchQuery('users', getUsers);
     },
   });
@@ -20,7 +19,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }) {
   if (isLoading) return <div>Loading...!</div>;
   if (isError) return <div>Error</div>;
 
-  const { name, avatar, salary, date, email, status } = data;
+  const { name, status } = data;
   const [firstname, lastname] = name ? name.split(' ') : formData;
 
   const handleSubmit = async (e) => {
@@ -42,46 +41,6 @@ export default function UpdateUserForm({ formId, formData, setFormData }) {
           name='firstname'
           className='border w-full px-5 py-3 focus:outline-none rounded-md'
           placeholder='FirstName'
-        />
-      </div>
-      <div className='input-type'>
-        <input
-          type='text'
-          onChange={setFormData}
-          defaultValue={lastname}
-          name='lastname'
-          className='border w-full px-5 py-3 focus:outline-none rounded-md'
-          placeholder='LastName'
-        />
-      </div>
-      <div className='input-type'>
-        <input
-          type='text'
-          onChange={setFormData}
-          defaultValue={email}
-          name='email'
-          className='border w-full px-5 py-3 focus:outline-none rounded-md'
-          placeholder='Email'
-        />
-      </div>
-      <div className='input-type'>
-        <input
-          type='text'
-          onChange={setFormData}
-          defaultValue={salary}
-          name='salary'
-          className='border w-full px-5 py-3 focus:outline-none rounded-md'
-          placeholder='Salary'
-        />
-      </div>
-      <div className='input-type'>
-        <input
-          type='date'
-          onChange={setFormData}
-          defaultValue={date}
-          name='date'
-          className='border px-5 py-3 focus:outline-none rounded-md'
-          placeholder='Salary'
         />
       </div>
 

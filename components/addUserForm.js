@@ -1,4 +1,3 @@
-import { useReducer } from 'react';
 import { BiPlus } from 'react-icons/bi';
 import Success from './success';
 import Bug from './bug';
@@ -17,16 +16,10 @@ export default function AddUserForm({ formData, setFormData }) {
     e.preventDefault();
     if (Object.keys(formData).length == 0)
       return console.log("Don't have Form Data");
-    let { firstname, lastname, email, salary, date, status } = formData;
+    let { firstname, status } = formData;
 
     const model = {
-      name: `${firstname} ${lastname}`,
-      avatar: `https://randomuser.me/api/portraits/men/${Math.floor(
-        Math.random() * 10
-      )}.jpg`,
-      email,
-      salary,
-      date,
+      name: firstname,
       status: status ?? 'Active',
     };
 
@@ -47,43 +40,7 @@ export default function AddUserForm({ formData, setFormData }) {
           onChange={setFormData}
           name='firstname'
           className='border w-full px-5 py-3 focus:outline-none rounded-md'
-          placeholder='FirstName'
-        />
-      </div>
-      <div className='input-type'>
-        <input
-          type='text'
-          onChange={setFormData}
-          name='lastname'
-          className='border w-full px-5 py-3 focus:outline-none rounded-md'
-          placeholder='LastName'
-        />
-      </div>
-      <div className='input-type'>
-        <input
-          type='text'
-          onChange={setFormData}
-          name='email'
-          className='border w-full px-5 py-3 focus:outline-none rounded-md'
-          placeholder='Email'
-        />
-      </div>
-      <div className='input-type'>
-        <input
-          type='text'
-          onChange={setFormData}
-          name='salary'
-          className='border w-full px-5 py-3 focus:outline-none rounded-md'
-          placeholder='Salary'
-        />
-      </div>
-      <div className='input-type'>
-        <input
-          type='date'
-          onChange={setFormData}
-          name='date'
-          className='border px-5 py-3 focus:outline-none rounded-md'
-          placeholder='Salary'
+          placeholder='Enter shopping list item...'
         />
       </div>
 

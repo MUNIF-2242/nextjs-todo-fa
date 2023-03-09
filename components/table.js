@@ -11,7 +11,7 @@ import {
 export default function Table() {
   const { isLoading, isError, data, error } = useQuery('users', getUsers);
 
-  if (isLoading) return <div>Employee is Loading...</div>;
+  if (isLoading) return <div>Shopping list is Loading...</div>;
   if (isError) return <div>Got Error {error}</div>;
 
   return (
@@ -19,16 +19,7 @@ export default function Table() {
       <thead>
         <tr className='bg-gray-800'>
           <th className='px-16 py-2'>
-            <span className='text-gray-200'>Name</span>
-          </th>
-          <th className='px-16 py-2'>
-            <span className='text-gray-200'>Email</span>
-          </th>
-          <th className='px-16 py-2'>
-            <span className='text-gray-200'>Salary</span>
-          </th>
-          <th className='px-16 py-2'>
-            <span className='text-gray-200'>Birthday</span>
+            <span className='text-gray-200'>Title</span>
           </th>
           <th className='px-16 py-2'>
             <span className='text-gray-200'>Status</span>
@@ -47,7 +38,7 @@ export default function Table() {
   );
 }
 
-function Tr({ _id, name, avatar, email, salary, date, status }) {
+function Tr({ _id, name, status }) {
   const visible = useSelector((state) => state.app.client.toggleForm);
   const dispatch = useDispatch();
 
@@ -67,23 +58,9 @@ function Tr({ _id, name, avatar, email, salary, date, status }) {
   return (
     <tr className='bg-gray-50 text-center'>
       <td className='px-16 py-2 flex flex-row items-center'>
-        <img
-          src={avatar || '#'}
-          alt=''
-          className='h-8 w-8 rounded-full object-cover'
-        />
         <span className='text-center ml-2 font-semibold'>
           {name || 'Unknown'}
         </span>
-      </td>
-      <td className='px-16 py-2'>
-        <span>{email || 'Unknown'}</span>
-      </td>
-      <td className='px-16 py-2'>
-        <span>{salary || 'Unknown'}</span>
-      </td>
-      <td className='px-16 py-2'>
-        <span>{date || 'Unknown'}</span>
       </td>
       <td className='px-16 py-2'>
         <button className='cursor'>

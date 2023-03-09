@@ -1,5 +1,5 @@
 /** Controller */
-import Users from '../model/user';
+import Users from '../model/shoppingList';
 
 // get : http://localhost:3000/api/users
 export async function getUsers(req, res) {
