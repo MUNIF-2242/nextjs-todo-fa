@@ -20,13 +20,12 @@ export default function UpdateUserForm({ formId, formData, setFormData }) {
   if (isError) return <div>Error</div>;
 
   const { name, status } = data;
-  const [firstname, lastname] = name ? name.split(' ') : formData;
+  // console.log(`${name}`);
+  // const [firstname, lastname] = name ? name.split(' ') : formData;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let userName = `${formData.firstname ?? firstname} ${
-      formData.lastname ?? lastname
-    }`;
+    let userName = name;
     let updated = Object.assign({}, data, formData, { name: userName });
     await UpdateMutation.mutate(updated);
   };
@@ -37,7 +36,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }) {
         <input
           type='text'
           onChange={setFormData}
-          defaultValue={firstname}
+          defaultValue={name}
           name='firstname'
           className='border w-full px-5 py-3 focus:outline-none rounded-md'
           placeholder='FirstName'
@@ -48,29 +47,29 @@ export default function UpdateUserForm({ formId, formData, setFormData }) {
         <div className='form-check'>
           <input
             type='radio'
-            defaultChecked={status == 'Active'}
+            defaultChecked={status == 'Completed'}
             onChange={setFormData}
-            value='Active'
+            value='Completed'
             id='radioDefault1'
             name='status'
             className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300  bg-white checked:bg-green-500 checked:border-green-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'
           />
           <label htmlFor='radioDefault1' className='inline-block tet-gray-800'>
-            Active
+            Completed
           </label>
         </div>
         <div className='form-check'>
           <input
             type='radio'
-            defaultChecked={status !== 'Active'}
+            defaultChecked={status !== 'Completed'}
             onChange={setFormData}
-            value='Inactive'
+            value='Not Completed'
             id='radioDefault2'
             name='status'
             className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300  bg-white checked:bg-green-500 checked:border-green-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'
           />
           <label htmlFor='radioDefault2' className='inline-block tet-gray-800'>
-            Inactive
+            Not Completed
           </label>
         </div>
       </div>

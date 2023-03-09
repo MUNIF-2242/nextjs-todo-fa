@@ -66,7 +66,7 @@ function Tr({ _id, name, status }) {
         <button className='cursor'>
           <span
             className={`${
-              status == 'Active' ? 'bg-green-500' : 'bg-rose-500'
+              status == 'Completed' ? 'bg-green-500' : 'bg-rose-500'
             } text-white px-5 py-1 rounded-full`}
           >
             {status || 'Unknown'}

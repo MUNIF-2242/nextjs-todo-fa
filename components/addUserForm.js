@@ -20,7 +20,7 @@ export default function AddUserForm({ formData, setFormData }) {
 
     const model = {
       name: firstname,
-      status: status ?? 'Active',
+      status: status ?? 'Not Completed',
     };
 
     addMutation.mutate(model);
@@ -49,26 +49,26 @@ export default function AddUserForm({ formData, setFormData }) {
           <input
             type='radio'
             onChange={setFormData}
-            value='Active'
+            value='Completed'
             id='radioDefault1'
             name='status'
             className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300  bg-white checked:bg-green-500 checked:border-green-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'
           />
           <label htmlFor='radioDefault1' className='inline-block tet-gray-800'>
-            Active
+            Completed
           </label>
         </div>
         <div className='form-check'>
           <input
             type='radio'
             onChange={setFormData}
-            value='Inactive'
+            value='Not Completed'
             id='radioDefault2'
             name='status'
             className='form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300  bg-white checked:bg-green-500 checked:border-green-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'
           />
           <label htmlFor='radioDefault2' className='inline-block tet-gray-800'>
-            Inactive
+            Not Completed
           </label>
         </div>
       </div>
